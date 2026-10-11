@@ -6,7 +6,7 @@ sections and items that are safe to publish:
 
   - Items must use relative "games/..." URLs (no internal Tailscale/ROM hosts).
   - Items must point at directories we ship in this repo.
-  - All ROM-library/emulator sections (absolute drflex...:8090 URLs) are dropped.
+  - All ROM-library/emulator sections (absolute internal-service URLs) are dropped.
 
 USAGE:
   python3 scripts/generate_public_catalog.py [source_games.json] [out.json]
@@ -54,7 +54,8 @@ EXCLUDED_PREFIXES = (
     "games/mahjong/",
 )
 
-INTERNAL_HOST = re.compile(r"drflex|tail9dfabd|:8090|:8092|:8093")
+# Matches private lab hostnames/ports so the public catalog can never leak them.
+INTERNAL_HOST = re.compile(r"drflex|tail[A-Za-z0-9]+\.ts\.net|:8090|:8092|:8093")
 
 
 def is_safe(url: str) -> bool:
