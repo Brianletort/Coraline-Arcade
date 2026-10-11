@@ -6,15 +6,17 @@ no cloud, no tracking. Open it on any tablet or phone and play.
 
 ![Coraline's Arcade hero](art/hero.webp)
 
+<video controls loop muted playsinline autoplay width="100%" src="media/arcade-preview-13s.mp4">
+  Your browser does not support HTML video. <a href="media/arcade-preview-13s.mp4">Download the preview</a> instead.
+</video>
+
 ## ▶️ Live demo
 
 **Play it right now:** <https://brianletort.github.io/Coraline-Arcade/>
 (Serves the exact files in this repo — same portal, same games, hosted on
 GitHub Pages.)
 
-**See it in motion:**
-- [13-second landscape preview](media/arcade-preview-13s.mp4)
-- [9:16 vertical preview](media/arcade-vert.mp4)
+**Vertical preview:** [9:16 vertical video](media/arcade-vert.mp4)
 
 ## A private AI use case
 
