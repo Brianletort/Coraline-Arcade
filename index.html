@@ -320,7 +320,7 @@ fetch('games.json').then(r=>r.json()).then(data => {
 
   statsEl.innerHTML = `
     <span class="pill">👾 <b>${total}</b> pickable games</span>
-    <span class="pill">🕹️ <b>${sections.filter(s=>/^genre-/.test(s.id)).length}+</b> categories</span>
+    <span class="pill">🕹️ <b>${sections.length}+</b> categories</span>
     <span class="pill">🐶 <span>Coraline + Puppy</span></span>`;
 }).catch(err => {
   sectionsEl.innerHTML = '<p style="color:#ff5fa2">Could not load games: '+err+'</p>';

@@ -10,7 +10,7 @@ no cloud, no tracking. Open it on any tablet or phone and play.
 
 This began as a personal experiment: can a non-enterprise, home-scale project
 with a small **local-first AI assistant** (homelab, no cloud) deliver something
-a five-year-old genuinely uses every day? The answer, for us, was yes.
+my 11-year-old genuinely uses every day? The answer, for us, was yes.
 
 **How we built it together**
 
@@ -93,4 +93,4 @@ file and copyright notice.** Highlights:
 
 ---
 
-Made with ♥ by Dad (and my little co-designer 🎨).
+Made with ♥ by Dad (and my co-designer 🎨).
