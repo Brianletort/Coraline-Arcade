@@ -1,0 +1,20 @@
+# OS clutter
+.DS_Store
+Thumbs.db
+*.swp
+*~
+._*
+
+# Stale art backups used while iterating
+art/*.bak-*
+
+# Playwright / node artifacts accidentally dropped in
+node_modules/
+package-lock.json
+*.log
+
+# Secrets / internal — never commit these
+.env*
+*.pem
+*_token*
+token*

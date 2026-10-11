@@ -1,0 +1,350 @@
+{
+  "sections": [
+    {
+      "id": "classics",
+      "name": "⭐ Classic Mini-Games",
+      "description": "The open-source greats — puzzle, strategy and action",
+      "style": "default",
+      "items": [
+        {
+          "name": "Pac-Man",
+          "url": "games/pacman/",
+          "icon": "👻",
+          "desc": "The classic maze chase"
+        },
+        {
+          "name": "2048",
+          "url": "games/2048/",
+          "icon": "🔢",
+          "desc": "Slide and merge"
+        },
+        {
+          "name": "Hextris",
+          "url": "games/hextris/",
+          "icon": "🔶",
+          "desc": "Hexagonal Tetris"
+        },
+        {
+          "name": "Clumsy Bird",
+          "url": "games/clumsy-bird/",
+          "icon": "🐦",
+          "desc": "Flappy bird open source"
+        },
+        {
+          "name": "Tower",
+          "url": "games/tower/",
+          "icon": "🗼",
+          "desc": "Stack blocks as high as you can"
+        },
+        {
+          "name": "2048 Classic",
+          "url": "games/2048-lite/",
+          "icon": "🔢",
+          "desc": "The original slide-and-merge"
+        },
+        {
+          "name": "Hextris Classic",
+          "url": "games/hextris-lite/",
+          "icon": "🔶",
+          "desc": "Hexagonal falling blocks"
+        },
+        {
+          "name": "Pac-Man Classic",
+          "url": "games/pacman-lite/",
+          "icon": "👻",
+          "desc": "Chomp the maze, classic style"
+        },
+        {
+          "name": "The Pond",
+          "url": "games/pond-lite/",
+          "icon": "🐟",
+          "desc": "A little pond ecosystem"
+        }
+      ]
+    },
+    {
+      "id": "adventure",
+      "name": "🗺️ Games & Quests",
+      "description": "Bigger worlds for longer sessions",
+      "style": "default",
+      "items": [
+        {
+          "name": "The House",
+          "url": "games/the-house/",
+          "icon": "🏠",
+          "desc": "Clever physics puzzler"
+        },
+        {
+          "name": "3D City",
+          "url": "games/3d-city/",
+          "icon": "🏙️",
+          "desc": "Build a city in 3D"
+        },
+        {
+          "name": "Missile Game",
+          "url": "games/missile-game/",
+          "icon": "🚀",
+          "desc": "Launch and dodge"
+        },
+        {
+          "name": "Tap Tap Tap",
+          "url": "games/taptaptap/",
+          "icon": "👆",
+          "desc": "Rhythm tapping"
+        },
+        {
+          "name": "HSC",
+          "url": "games/hsc/",
+          "icon": "♻️",
+          "desc": "Hyperspace garbage collection"
+        }
+      ]
+    },
+    {
+      "id": "board",
+      "name": "♟️ Chess, Cards & Board",
+      "description": "Slow games for coffee and rainy days",
+      "style": "default",
+      "items": [
+        {
+          "name": "Chess",
+          "url": "games/chess/",
+          "icon": "♟️",
+          "desc": "Classic chess against AI"
+        },
+        {
+          "name": "Hearts",
+          "url": "games/hearts/",
+          "icon": "♥️",
+          "desc": "The card game"
+        },
+        {
+          "name": "Classic Pool",
+          "url": "games/classic-pool/",
+          "icon": "🎱",
+          "desc": "8-ball pool"
+        }
+      ]
+    },
+    {
+      "id": "odd",
+      "name": "🎲 Fun & Novelty",
+      "description": "Just-for-fun titles",
+      "style": "default",
+      "items": [
+        {
+          "name": "Twisty Polyhedra",
+          "url": "games/twisty-polyhedra/",
+          "icon": "🧊",
+          "desc": "3D twisty puzzles"
+        }
+      ]
+    },
+    {
+      "id": "more",
+      "name": "🌈 More Games",
+      "description": "More quick games for the iPad — all touch-friendly",
+      "style": "default",
+      "items": [
+        {
+          "name": "Air Hockey",
+          "url": "games/mini/air-hockey.html",
+          "icon": "🏒",
+          "desc": "Swipe and score — 1v1 puck action"
+        },
+        {
+          "name": "Fruit Slice",
+          "url": "games/mini/fruit-slice.html",
+          "icon": "🍉",
+          "desc": "Slice the fruit, dodge the bombs"
+        },
+        {
+          "name": "Sky Hop",
+          "url": "games/mini/sky-hop.html",
+          "icon": "☁️",
+          "desc": "Hop from cloud to cloud"
+        },
+        {
+          "name": "Neon Snake",
+          "url": "games/mini/snake-game.html",
+          "icon": "🪱",
+          "desc": "Grow the glowing snake"
+        },
+        {
+          "name": "Tank Arena",
+          "url": "games/mini/tank-arena.html",
+          "icon": "🛡️",
+          "desc": "Steel tanks battling it out"
+        },
+        {
+          "name": "Ball Arena",
+          "url": "games/mini/ball-arena.html",
+          "icon": "🟡",
+          "desc": "Bounce, reflect, survive"
+        },
+        {
+          "name": "Flappy Glider",
+          "url": "games/mini/flappy-glider.html",
+          "icon": "🐦",
+          "desc": "Glide through the gaps"
+        },
+        {
+          "name": "Stack Tower",
+          "url": "games/mini/stack-tower.html",
+          "icon": "🗼",
+          "desc": "Stack the blocks straight"
+        },
+        {
+          "name": "Penalty Rush",
+          "url": "games/mini/penalty-rush.html",
+          "icon": "⚽",
+          "desc": "Score goals, save shots"
+        },
+        {
+          "name": "Pocket Golf",
+          "url": "games/mini/pocket-golf.html",
+          "icon": "⛳",
+          "desc": "Mini-golf putt challenge"
+        },
+        {
+          "name": "Moon Lander",
+          "url": "games/mini/moon-lander.html",
+          "icon": "🌙",
+          "desc": "Land softly on the moon"
+        },
+        {
+          "name": "Orbital Pinball",
+          "url": "games/mini/orbital-pinball.html",
+          "icon": "🪐",
+          "desc": "Space-themed pinball"
+        },
+        {
+          "name": "Drift Racer",
+          "url": "games/mini/drift-racer.html",
+          "icon": "🏎️",
+          "desc": "Drift around the track"
+        },
+        {
+          "name": "Sling Storm",
+          "url": "games/mini/slingstorm.html",
+          "icon": "🪂",
+          "desc": "Sling through the storm"
+        },
+        {
+          "name": "Spud Arena",
+          "url": "games/mini/spud-arena.html",
+          "icon": "🥔",
+          "desc": "Potato battles in the arena"
+        },
+        {
+          "name": "Maze Chase",
+          "url": "games/mini/maze-chase.html",
+          "icon": "🌀",
+          "desc": "Chase through the maze"
+        },
+        {
+          "name": "Monster Horde",
+          "url": "games/mini/monster-horde.html",
+          "icon": "👾",
+          "desc": "Survive the monster waves"
+        },
+        {
+          "name": "Monster Tamer",
+          "url": "games/mini/monster-tamer.html",
+          "icon": "🐉",
+          "desc": "Catch and collect monsters"
+        },
+        {
+          "name": "Sokoban",
+          "url": "games/mini/sokoban-quest.html",
+          "icon": "📦",
+          "desc": "Push the crates home"
+        },
+        {
+          "name": "Mosaic Jigsaw",
+          "url": "games/mini/mosaic-jigsaw.html",
+          "icon": "🧩",
+          "desc": "Piece the mosaic together"
+        },
+        {
+          "name": "Merge Orbit",
+          "url": "games/mini/merge-orbit.html",
+          "icon": "🪐",
+          "desc": "Merge planets in orbit"
+        },
+        {
+          "name": "Prism Breaker",
+          "url": "games/mini/prism-breaker.html",
+          "icon": "🔮",
+          "desc": "Break the light prisms"
+        },
+        {
+          "name": "Bomb Grid",
+          "url": "games/mini/bomb-grid.html",
+          "icon": "💣",
+          "desc": "Clear the minefield"
+        },
+        {
+          "name": "Dojo Duel",
+          "url": "games/mini/dojo-duel.html",
+          "icon": "🥋",
+          "desc": "Martial arts showdown"
+        },
+        {
+          "name": "Neon 2048",
+          "url": "games/mini/neon-2048.html",
+          "icon": "🔢",
+          "desc": "Falling neon tiles"
+        },
+        {
+          "name": "Dice Delver",
+          "url": "games/mini/dice-delver.html",
+          "icon": "🎲",
+          "desc": "Roll your way through the dungeon"
+        },
+        {
+          "name": "Pocket Farm",
+          "url": "games/mini/pocket-farm.html",
+          "icon": "🌾",
+          "desc": "Grow your little farm"
+        },
+        {
+          "name": "Blackjack",
+          "url": "games/mini/blackjack-table.html",
+          "icon": "🃏",
+          "desc": "Play blackjack vs the house"
+        },
+        {
+          "name": "Mahjong Link",
+          "url": "games/mini/mahjong-link.html",
+          "icon": "🀄",
+          "desc": "Match the mahjong tiles"
+        },
+        {
+          "name": "Connect Arena",
+          "url": "games/mini/connect-arena.html",
+          "icon": "🔗",
+          "desc": "Four in a row"
+        },
+        {
+          "name": "Mole Market",
+          "url": "games/mini/mole-market.html",
+          "icon": "🕳️",
+          "desc": "Whack the moles"
+        },
+        {
+          "name": "Lantern Memory",
+          "url": "games/mini/lantern-memory.html",
+          "icon": "🏮",
+          "desc": "Match the lanterns"
+        },
+        {
+          "name": "Word Grid",
+          "url": "games/mini/word-grid.html",
+          "icon": "🔤",
+          "desc": "Find words in the grid"
+        }
+      ]
+    }
+  ]
+}

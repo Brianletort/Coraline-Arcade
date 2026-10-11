@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#ffd9ec">
+<link rel="icon" href="art/avatar-sm.webp" type="image/webp">
+<link rel="apple-touch-icon" href="art/avatar-sm.webp">
+<title>Coraline's Arcade — her magical game portal</title>
+<style>
+  @font-face{
+    font-family:"Luckiest Guy";
+    src:url("art/luckiestguy.ttf") format("truetype");
+    font-display:swap;
+  }
+  :root{
+    /* Disney-pink storybook palette */
+    --bg:#2b0a2e; --bg2:#6d1b5e; --bg3:#b33a86; --bg4:#ffd9ec;
+    --panel:rgba(255,224,240,.16); --panel2:rgba(255,214,236,.22);
+    --text:#fff6fb; --muted:#ffd0e6;
+    --pink:#ff5fa2; --pink2:#ff9ecb; --rose:#ff80b0; --gold:#ffd166;
+    --lavender:#e4c6ff; --cream:#fff3e0; --sky:#bfe3ff; --mint:#b9f6ca;
+    --card:rgba(255,228,242,.14); --border:rgba(255,255,255,.22);
+    --grad:linear-gradient(90deg,var(--gold),var(--pink),var(--lavender),var(--sky));
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{-webkit-text-size-adjust:100%;}
+  body{
+    font-family:"Avenir Next","Segoe UI",system-ui,-apple-system,sans-serif;
+    color:var(--text);
+    min-height:100vh;
+    background:
+      radial-gradient(1200px 600px at 85% -10%, rgba(255,95,162,.35), transparent 60%),
+      radial-gradient(1000px 700px at -10% 20%, rgba(228,198,255,.28), transparent 55%),
+      radial-gradient(900px 700px at 50% 115%, rgba(191,227,255,.16), transparent 60%),
+      linear-gradient(170deg, var(--bg) 0%, var(--bg2) 40%, var(--bg3) 72%, var(--bg4) 130%),
+      #2b0a2e;
+    background-attachment:fixed;
+    padding-bottom:52px;
+    overflow-x:hidden;
+  }
+  .wrap{max-width:1200px; margin:0 auto; padding:0 16px; position:relative; z-index:2;}
+
+  /* ===== CASTLE SKYLINE (Disney) ===== */
+  .castle{
+    position:fixed; left:0; right:0; bottom:0; height:120px; z-index:1; pointer-events:none;
+    background:
+      radial-gradient(24px 34px at 8% 100%, rgba(255,224,240,.20) 60%, transparent 61%),
+      radial-gradient(20px 28px at 20% 100%, rgba(255,224,240,.16) 60%, transparent 61%),
+      radial-gradient(26px 36px at 34% 100%, rgba(255,224,240,.22) 60%, transparent 61%),
+      radial-gradient(18px 26px at 48% 100%, rgba(255,224,240,.16) 60%, transparent 61%),
+      radial-gradient(24px 32px at 62% 100%, rgba(255,224,240,.22) 60%, transparent 61%),
+      radial-gradient(19px 27px at 77% 100%, rgba(255,224,240,.18) 60%, transparent 61%),
+      radial-gradient(25px 35px at 91% 100%, rgba(255,224,240,.24) 60%, transparent 61%);
+    mask-image:linear-gradient(to top,#000 30%,transparent);
+    -webkit-mask-image:linear-gradient(to top,#000 30%,transparent);
+  }
+
+  /* ===== HERO ===== */
+  header{position:relative; text-align:center; padding:32px 0 0;}
+  .mascot{position:relative; width:min(36vw,224px); margin:0 auto 6px; aspect-ratio:1; animation:mascotBounce 2.6s ease-in-out infinite;}
+  .mascot img{width:100%; height:100%; object-fit:cover; border-radius:30%; display:block; position:relative; z-index:2;
+    border:4px solid rgba(255,255,255,.55);
+    box-shadow:0 0 0 5px rgba(255,95,162,.28), 0 18px 40px -8px rgba(0,0,0,.5);
+  }
+  .mascot::before,.mascot::after{content:""; position:absolute; border-radius:30%; z-index:1;}
+  .mascot::before{inset:-10%; background:radial-gradient(60% 60% at 50% 40%, var(--pink), transparent 70%), radial-gradient(75% 75% at 50% 55%, var(--lavender), transparent 78%); filter:blur(26px); opacity:.95; animation:glowPulse 3s ease-in-out infinite;}
+  .mascot::after{inset:-4%; border:3px solid rgba(255,255,255,.6); box-shadow:inset 0 0 24px rgba(255,159,203,.35), 0 0 34px rgba(255,95,162,.6);}
+  .mascot .halo{position:absolute; top:-34px; left:50%; transform:translateX(-50%); font-size:2.1rem; z-index:3; animation:haloSpin 7s linear infinite; filter:drop-shadow(0 0 8px rgba(255,215,0,.9));}
+  .mascot .heart-float{position:absolute; font-size:1.5rem; z-index:3; animation:heartFloat 2.2s ease-in-out infinite;}
+  .mascot .heart-float.hf1{top:4%; right:-12%; animation-delay:.2s;}
+  .mascot .heart-float.hf2{top:14%; left:-14%; animation-delay:1.1s;}
+
+  @keyframes mascotBounce{0%,100%{transform:translateY(0) rotate(0)}30%{transform:translateY(-14px) rotate(-1.5deg)}60%{transform:translateY(0) rotate(1deg)}} 
+  @keyframes glowPulse{0%,100%{opacity:.85}50%{opacity:1}}
+  @keyframes haloSpin{from{transform:translateX(-50%) rotate(0)}to{transform:translateX(-50%) rotate(360deg)}}
+  @keyframes heartFloat{0%,100%{transform:translateY(0) scale(.9); opacity:.7}50%{transform:translateY(-12px) scale(1.15); opacity:1}}
+
+  h1{font-family:"Luckiest Guy", "Arial Rounded MT Bold", "Avenir Next", sans-serif;
+    font-weight:400; letter-spacing:.02em;
+    font-size:clamp(2.8rem,11vw,6.4rem); margin:16px 0 2px;
+    background:linear-gradient(180deg,#fff 0%, #ffe3f1 30%, #ffb3d6 58%, #fff6c9 78%, #fff 100%);
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+    filter:drop-shadow(0 0 20px rgba(255,95,162,.7)) drop-shadow(0 5px 16px rgba(0,0,0,.45));
+    transform:rotate(-1.4deg);
+    animation:titleWobble 4s ease-in-out infinite;
+  }
+  @keyframes titleWobble{0%,100%{transform:rotate(-1.4deg) scale(1)}50%{transform:rotate(1.2deg) scale(1.015)}}
+  .tag{color:var(--muted); font-size:clamp(1rem,3.2vw,1.3rem); letter-spacing:.01em; max-width:680px; margin:8px auto 0; text-shadow:0 2px 10px rgba(0,0,0,.35);}
+  .stats{display:flex; gap:10px; justify-content:center; align-items:center; margin-top:14px; font-size:.9rem; color:var(--muted); flex-wrap:wrap;}
+  .stats b{color:var(--gold); font-weight:700; text-shadow:0 0 12px rgba(255,215,0,.6);}
+  .pill{display:inline-flex; align-items:center; gap:6px; padding:6px 14px; border-radius:999px; border:1px solid var(--border); background:var(--panel); color:var(--text); backdrop-filter:blur(6px); -webkit-backdrop-filter:blur(6px);}
+
+  /* ===== SECTIONS ===== */
+  section{margin-top:38px;}
+  h2{font-size:clamp(1.3rem,4.2vw,1.7rem); color:var(--text); margin-bottom:6px; display:flex; align-items:center; gap:10px; text-shadow:0 2px 8px rgba(0,0,0,.35);}
+  h2 .dot{width:14px; height:26px; border-radius:8px; background:var(--grad); box-shadow:0 0 16px rgba(255,95,162,.8); animation:dotPulse 2s ease-in-out infinite;}
+  @keyframes dotPulse{0%,100%{transform:scaleY(1)}50%{transform:scaleY(1.25)}}
+  h2 .star{animation:starTwinkle 2.4s ease-in-out infinite;}
+  @keyframes starTwinkle{0%,100%{opacity:.5; transform:scale(.8)}50%{opacity:1; transform:scale(1.15)}}
+  .sec-desc{color:var(--muted); margin-bottom:16px; font-size:.95rem; max-width:720px;}
+
+  .grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(170px,1fr)); gap:14px;}
+  .card{
+    display:block; text-decoration:none; color:var(--text);
+    background:linear-gradient(180deg,var(--panel2),rgba(255,220,238,.10));
+    border:1.5px solid var(--border); border-radius:20px; padding:16px 14px; text-align:center;
+    backdrop-filter:blur(4px); -webkit-backdrop-filter:blur(4px);
+    transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+    -webkit-tap-highlight-color:transparent; user-select:none;
+    box-shadow:0 8px 22px -8px rgba(0,0,0,.45);
+  }
+  .card .ico{font-size:clamp(1.9rem,6vw,2.6rem); display:block; margin-bottom:8px; filter:drop-shadow(0 2px 8px rgba(0,0,0,.5)); transition:transform .2s ease;}
+  .card .nm{font-weight:700; font-size:clamp(.95rem,2.6vw,1.05rem); display:block; line-height:1.2;
+    overflow-wrap:anywhere; word-break:break-word;}
+  .card .ds{color:var(--muted); font-size:.78rem; margin-top:6px; line-height:1.35; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden;}
+  .card:hover{transform:translateY(-6px) scale(1.015); border-color:rgba(255,255,255,.5); box-shadow:0 14px 34px -8px rgba(0,0,0,.6), 0 0 0 1px rgba(255,95,162,.35), 0 0 26px -6px rgba(255,95,162,.55);}
+  .card:hover .ico{transform:scale(1.15) rotate(-6deg);}
+  .card.featured{border-color:rgba(255,215,0,.55); box-shadow:0 0 26px -4px rgba(255,215,0,.45);}
+  .card.featured .ico{filter:drop-shadow(0 0 12px rgba(255,215,0,.6));}
+
+  footer{text-align:center; color:var(--muted); font-size:.8rem; margin-top:56px; line-height:1.7; text-shadow:0 2px 8px rgba(0,0,0,.4);}
+  footer code{background:rgba(255,255,255,.1); padding:1px 6px; border-radius:6px;}
+
+  /* sparkle + hearts field */
+  .particles{position:fixed; inset:0; pointer-events:none; z-index:0;}
+  .particle{position:absolute; pointer-events:none; animation:floatUp linear infinite;}
+  @keyframes floatUp{
+    0%{transform:translateY(105vh) scale(.4) rotate(0); opacity:0;}
+    12%{opacity:.95;}
+    88%{opacity:.6;}
+    100%{transform:translateY(-12vh) scale(1) rotate(360deg); opacity:0;}
+  }
+
+  /* ===== genre pill bar ===== */
+  .genrebar{display:flex; gap:8px; flex-wrap:wrap; justify-content:center; margin:24px 0 6px;}
+  .chip{
+    appearance:none; border:1.5px solid var(--border); background:var(--panel); color:var(--muted);
+    border-radius:999px; padding:8px 16px; font-size:.9rem; cursor:pointer;
+    transition:all .15s ease; -webkit-tap-highlight-color:transparent; font-family:inherit;
+    backdrop-filter:blur(4px); -webkit-backdrop-filter:blur(4px);
+  }
+  .chip:hover{border-color:rgba(255,255,255,.4); color:var(--text); transform:translateY(-1px);}
+  .chip.on{background:linear-gradient(90deg,var(--gold),var(--pink),var(--lavender)); color:#4a0a35; font-weight:800; border-color:transparent; box-shadow:0 0 20px -2px rgba(255,95,162,.75);}
+
+  /* ===== rank badges ===== */
+  .card{position:relative;}
+  .rank{
+    position:absolute; top:-8px; left:-8px; width:28px; height:28px; border-radius:50%;
+    background:linear-gradient(180deg,#ffd166,#ff9f1c); color:#3a1e00; font-weight:800; font-size:.85rem;
+    display:flex; align-items:center; justify-content:center; box-shadow:0 2px 10px rgba(0,0,0,.5), 0 0 16px rgba(255,209,102,.5);
+    animation:badgePop .5s ease both;
+  }
+  @keyframes badgePop{from{transform:scale(0) rotate(-90deg)}to{transform:scale(1) rotate(0)}}
+  .top-grid .card{background:linear-gradient(180deg,rgba(255,215,0,.14),var(--panel2));}
+  .top-grid .card:hover{border-color:#ffd166; box-shadow:0 14px 34px -8px rgba(0,0,0,.6), 0 0 0 1px rgba(255,209,102,.5);}
+
+  @media (max-width:640px){
+    .grid{grid-template-columns:repeat(auto-fill,minmax(142px,1fr)); gap:11px;}
+    .genrebar{justify-content:flex-start; overflow-x:auto; padding-bottom:4px; flex-wrap:nowrap; -webkit-overflow-scrolling:touch;}
+    .chip{white-space:nowrap; padding:10px 18px; font-size:.95rem;}
+    .castle{height:90px;}
+  }
+
+  /* tablets & small windows: keep the genre bar to one swipeable row instead of wrapping */
+  @media (min-width:641px) and (max-width:1024px){
+    .genrebar{justify-content:flex-start; overflow-x:auto; padding-bottom:6px; flex-wrap:nowrap; -webkit-overflow-scrolling:touch;}
+    .chip{white-space:nowrap; padding:10px 18px; font-size:.95rem;}
+  }
+
+  @media (min-width:1025px){
+    .chip{padding:10px 18px; font-size:.95rem;}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .mascot,.mascot::before,.mascot::after,.particle,.halo,.heart-float,h1,.dot,.star,.rank{animation:none !important;}
+  }
+</style>
+</head>
+<body>
+<div class="particles" id="particles"></div>
+<div class="castle" aria-hidden="true"></div>
+<div class="wrap">
+  <header>
+    <div class="mascot" id="mascot">
+      <span class="halo">⭐</span>
+      <span class="heart-float hf1">💖</span>
+      <span class="heart-float hf2">🦴</span>
+      <img src="art/avatar.webp" alt="Coraline and her puppy at the arcade" id="avatarImg">
+    </div>
+    <h1 id="title">Coraline's Arcade</h1>
+    <p class="tag" id="subtitle">100+ games of every kind, waiting behind one door</p>
+    <div class="stats" id="stats"></div>
+  </header>
+
+  <main id="sections"></main>
+
+  <footer>
+    Made with ♥ by Dad, hosted in our very own mini arcade at home<br>
+    <span style="opacity:.7">Self-hosted on the DrFlex lab · Runs in your browser · No cloud</span>
+  </footer>
+</div>
+
+<script>
+const sectionsEl = document.getElementById('sections');
+const statsEl = document.getElementById('stats');
+
+// --- particle field: hearts + stars + sparkles ---
+(function(){
+  const host = document.getElementById('particles');
+  const frag = document.createDocumentFragment();
+  const symbols = ['💖','💕','⭐','✨','🌸','🦴','🌟','💫','🎀','✨'];
+  const N = (isMobile() || matchMedia('(max-width:640px)').matches) ? 26 : 44;
+  for(let i=0;i<N;i++){
+    const s = document.createElement('span');
+    s.className='particle';
+    const size = 10+Math.random()*18;
+    s.textContent = symbols[i%symbols.length];
+    s.style.cssText = `left:${Math.random()*100}%; font-size:${size}px; opacity:.8;
+      animation-duration:${12+Math.random()*14}s; animation-delay:${Math.random()*12}s;`;
+    frag.appendChild(s);
+  }
+  host.appendChild(frag);
+})();
+
+// --- celebrate on load: a quick burst of hearts ---
+(function(){
+  const host = document.getElementById('particles');
+  const burst = ['💖','🎉','✨','🌟','💕','🦴','🌈'];
+  for(let i=0;i<18;i++){
+    const s = document.createElement('span');
+    s.className='particle';
+    s.textContent = burst[i%burst.length];
+    s.style.fontSize = (12+Math.random()*16)+'px';
+    s.style.left = (5+Math.random()*90)+'%';
+    s.style.animation = `none`;
+    s.style.transition = 'none';
+    s.style.position = 'absolute';
+    s.style.bottom = (20+Math.random()*40)+'vh';
+    s.style.opacity = '0';
+    host.appendChild(s);
+    requestAnimationFrame(()=>{
+      s.style.transition = `transform ${1.2+Math.random()}s ease-out, opacity ${1.2+Math.random()}s ease-out, top .001s linear`;
+      s.style.transform = `translateY(${-30-Math.random()*50}vh) rotate(${Math.random()*180-90}deg) scale(1.2)`;
+      s.style.opacity = '1';
+      setTimeout(()=>{ s.style.opacity='0'; }, 700);
+    });
+  }
+})();
+
+function isMobile(){
+  return /Android|iPhone|iPad|iPod/i.test(navigator.userAgent) || (navigator.maxTouchPoints||0)>1;
+}
+
+fetch('games.json').then(r=>r.json()).then(data => {
+  document.title = data.sections ? "Coraline's Arcade" : 'Arcade';
+  const title = document.getElementById('title');
+  const sub = document.getElementById('subtitle');
+  if (data.title) title.textContent = data.title;
+  if (data.subtitle) sub.textContent = data.subtitle;
+
+  const sections = data.sections || [];
+  let total = 0;
+  sections.forEach(sec => total += (sec.items||[]).length);
+
+  // ---- genre filter pills (only if enough genre sections exist) ----
+  const genreSecs = sections.filter(s => /^genre-/.test(s.id));
+  const isTop = (s) => s.id === 'top';
+  if (genreSecs.length) {
+    const bar = document.createElement('div');
+    bar.className = 'genrebar';
+    const chips = ['All'].concat(genreSecs.map(s => s.genre || s.name.replace(/^[^\w]+/,'').trim()));
+    const core = ['All','Action','Platform','RPG','Shooter','Sports','Puzzle','Adventure'];
+    const uniqChips = [];
+    core.forEach(c => { if (chips.includes(c) && !uniqChips.includes(c)) uniqChips.push(c); });
+    chips.forEach(c => { if (!uniqChips.includes(c)) uniqChips.push(c); });
+    uniqChips.slice(0, 10).forEach((c, i) => {
+      const btn = document.createElement('button');
+      btn.className = 'chip' + (c === 'All' ? ' on' : '');
+      btn.textContent = c;
+      btn.onclick = () => {
+        bar.querySelectorAll('.chip').forEach(b => b.classList.remove('on'));
+        btn.classList.add('on');
+        const showAll = c === 'All';
+        document.querySelectorAll('section[data-genre]').forEach(sec => {
+          const match = !showAll && (sec.dataset.genre === c || (sec.dataset.genre.startsWith(c)));
+          sec.style.display = showAll || match ? '' : 'none';
+        });
+      };
+      bar.appendChild(btn);
+    });
+    const main = document.getElementById('sections');
+    main.parentNode.insertBefore(bar, main);
+  }
+
+  const frag = document.createDocumentFragment();
+  sections.forEach((sec, si) => {
+    const isTopSec = isTop(sec);
+    const s = document.createElement('section');
+    if (sec.genre) s.setAttribute('data-genre', sec.genre);
+    const h = document.createElement('h2');
+    const starIcon = isTopSec ? '⭐' : (si % 3 === 0 ? '✨' : '');
+    h.innerHTML = `<span class="dot"></span>`+(sec.name||sec.id)+(starIcon?` <span class="star">${starIcon}</span>`:'');
+    s.appendChild(h);
+    if (sec.description){ const d=document.createElement('div'); d.className='sec-desc'; d.textContent=sec.description; s.appendChild(d); }
+    const g = document.createElement('div');
+    g.className = 'grid' + (isTopSec ? ' top-grid' : '');
+    (sec.items||[]).forEach((item, i) => {
+      const c = document.createElement('a');
+      c.className = 'card'+(item.class?' '+item.class:'');
+      c.href = item.url||'#';
+      const rank = isTopSec ? `<span class="rank">${i+1}</span>` : '';
+      c.innerHTML = rank+`<span class="ico">${item.icon||'🎮'}</span><span class="nm">${item.name}</span>`+(item.desc?`<div class="ds">${item.desc}</div>`:'');
+      g.appendChild(c);
+    });
+    s.appendChild(g);
+    frag.appendChild(s);
+  });
+  sectionsEl.appendChild(frag);
+
+  statsEl.innerHTML = `
+    <span class="pill">👾 <b>${total}</b> pickable games</span>
+    <span class="pill">🕹️ <b>${sections.filter(s=>/^genre-/.test(s.id)).length}+</b> categories</span>
+    <span class="pill">🐶 <span>Coraline + Puppy</span></span>`;
+}).catch(err => {
+  sectionsEl.innerHTML = '<p style="color:#ff5fa2">Could not load games: '+err+'</p>';
+});
+</script>
+</body>
+</html>
