@@ -2,16 +2,22 @@
 
 ## Scope
 
-This repository is a **private, family project** — a kid-first game portal
-and a personal AI use case built by Brian and his daughter. It is shared
-privately, not for public consumption.
+This repository is a **family-built, open-source project** — a kid-first game
+portal and a personal AI use case built by Brian and his daughter. It is
+publicly shared for others to explore, learn from, and run themselves.
 
 ## Reporting a vulnerability
 
-This project has no public attack surface: it is served only inside the
-family home lab to devices on the home network and does not accept
-contributions. If you are a participant and notice a problem, tell us
-directly rather than opening a public issue.
+If you find a security issue, please report it privately **via GitHub's
+private security advisory flow** (Security → Report a vulnerability) rather
+than opening a public issue. There is no bug bounty; we'll do our best to
+respond and fix promptly.
+
+## Supported hosting
+
+- Any static file server (`python3 -m http.server`, nginx, Caddy, GitHub
+  Pages) works. The portal fetches `games.json` over HTTP — nothing else is
+  required.
 
 ## What this repo intentionally does NOT contain
 
@@ -20,9 +26,8 @@ To stay within GitHub's terms and keep the project safe to host:
 - **No game ROMs or copyrighted software.** The portal serves only open-source
   games that carry their own licenses (each preserved in-repo).
 - **No private infrastructure details.** Internal hostnames, ports, tokens,
-  proxy configs, and auth material are deliberately excluded. The RA/emulator
-  layer (`retroassembly`, shared-auth proxy, `uzdoom`, ROM libraries) is
-  private family hardware and is not, and never will be, part of this repo.
+  proxy configs, and auth material are deliberately excluded. The private
+  emulator/ROM layer used at home is separate and not part of this repository.
 
 ## Secret scanning
 
