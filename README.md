@@ -6,6 +6,16 @@ no cloud, no tracking. Open it on any tablet or phone and play.
 
 ![Coraline's Arcade hero](art/hero.webp)
 
+## ▶️ Live demo
+
+**Play it right now:** <https://brianletort.github.io/Coraline-Arcade/>
+(Serves the exact files in this repo — same portal, same games, hosted on
+GitHub Pages.)
+
+**See it in motion:**
+- [13-second landscape preview](media/arcade-preview-13s.mp4)
+- [9:16 vertical preview](media/arcade-vert.mp4)
+
 ## A private AI use case
 
 This began as a personal experiment: can a non-enterprise, home-scale project
