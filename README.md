@@ -1,21 +1,49 @@
 # Coraline's Arcade 🕹️
 
-A magical, kid-first game portal — a storybook-pink arcade built for my
-daughter on our home lab. It runs entirely in the browser: no accounts, no
-cloud, no tracking. Open it on any tablet or phone and play.
+A magical, kid-first game portal — a storybook-pink arcade my daughter and I
+built together. It runs entirely in the browser on our home lab: no accounts,
+no cloud, no tracking. Open it on any tablet or phone and play.
 
 ![Coraline's Arcade hero](art/hero.webp)
 
-## What it is
+## A private AI use case
 
-Coraline's Arcade is a static web portal (HTML + a `games.json` catalog, no
-frameworks, no build step) that bundles a hand-curated collection of
-open-source browser games. The games are organized into friendly sections
-(⭐ Classics, 🗺️ Quests, ♟️ Board, 🎲 Novelty, 🌈 More Games) and are all
-kid-appropriate and touch-friendly.
+This began as a personal experiment: can a non-enterprise, home-scale project
+with a small **local-first AI assistant** (homelab, no cloud) deliver something
+a five-year-old genuinely uses every day? The answer, for us, was yes.
 
-**This repository contains the portal and the redistributable game pack.**
-It does *not* include the ROM/emulator library layer — see
+**How we built it together**
+
+- **Planning:** we sketched the idea on a whiteboard — "her magical game
+  portal" — and broke it into pieces: the landing page, the catalog, the game
+  pick, touch controls for the iPad.
+- **Building:** the portal is a single `index.html` (plain JS + CSS, no
+  frameworks) that renders a `games.json` catalog. My AI assistant wrote most
+  of the tricky bits — touch controllers, the castle-gradient hero, the
+  responsive layout — and I reviewed and shipped each pass.
+- **Testing with my daughter:** she was the QA lead. "The buttons are too
+  small." "I want the puppy one." "Make it pinker." Every round of feedback
+  became the next change.
+- **Deploying on our hardware:** it runs from the DrFlex home lab, bound to
+  localhost, shared only inside the family network.
+
+The takeaway: local-first AI isn't about benchmarks. It's about the sense that
+a tool can build something personal and useful on your own hardware, with your
+kid beside you, and your data never leaving the house.
+
+## What's in this repo
+
+```
+├── index.html          # The portal (single page, plain JS + CSS)
+├── games.json          # Catalog of bundled games (relative URLs only)
+├── art/                # Hero art, avatar, font
+├── scripts/            # Repo tooling
+└── games/              # Open-source games, each keeping its own LICENSE
+```
+
+This repository contains the **portal and the redistributable game pack only
+(51 games)**. It deliberately does not include the private emulator/ROM layer
+— that stays on family hardware. See [SECURITY.md](SECURITY.md) and
 [Licensing & what's included](#licensing--whats-included).
 
 ## Quick start
@@ -28,20 +56,10 @@ python3 -m http.server 8080
 
 Or simply open `index.html` locally. Everything runs client-side.
 
-## Project layout
-
-```
-├── index.html          # The portal (single page, plain JS + CSS)
-├── games.json          # Catalog of bundled games (relative URLs only)
-├── art/                # Hero art, avatar, font
-├── scripts/            # Repo tooling (catalog generation, etc.)
-└── games/              # Open-source games, each keeping its own LICENSE
-```
-
 ## Game packs
 
 The bundled games are all open source. **Each game keeps its own LICENSE
-file and copyright notice** — full attribution lives in the repo. Highlights:
+file and copyright notice.** Highlights:
 
 | Pack | Source | License |
 | --- | --- | --- |
@@ -55,7 +73,7 @@ file and copyright notice** — full attribution lives in the repo. Highlights:
 | tower | BMQB | MIT |
 | asteroids | Doug McInnes | BSD-style |
 | hextris(+lite) | Hextris | GPLv3 |
-| pacman(+lite) / pancamonde | attogram | GPLv3 |
+| pacman(+lite) | attogram | GPLv3 |
 | 3d-city, twisty-polyhedra, pond-lite, clumsy-bird, wolfenstein3d, missile-game | various | GPLv3 / AGPLv3 |
 | hearts | [Yujian Yao](https://github.com/yyjhao/html5-hearts) | all-rights-reserved (see note) |
 
@@ -71,15 +89,8 @@ file and copyright notice** — full attribution lives in the repo. Highlights:
   their own respective licenses, each preserved in-repo.
 - **The ROM/emulator library is deliberately not published.** Playable ROMs
   are copyrighted and run on our private family hardware only. This is a
-  portal over *redistributable* games, which keeps it legal to share.
-
-## Why I built it
-
-Built with a lot of love, a little AI assistance, and a self-hosted home lab
-(the "DrFlex" lab). The whole thing runs from a Raspberry-Pi-class box plus a
-couple of small servers in the garage — no game streaming subscription, no
-ads, no tracking, just games.
+  portal over *redistributable* games, which keeps it legal and safe to host.
 
 ---
 
-Made with ♥ by Dad.
+Made with ♥ by Dad (and my little co-designer 🎨).
